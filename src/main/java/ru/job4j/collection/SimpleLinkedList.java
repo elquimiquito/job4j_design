@@ -19,7 +19,7 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
                 head = newNode;
             } else {
                 Node<E> oldNode = head;
-                for (int i = 0; i < size - 1; i++) {
+                while (oldNode.next != null) {
                     oldNode = oldNode.next;
                 }
                 oldNode.next = newNode;
