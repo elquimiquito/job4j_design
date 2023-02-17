@@ -28,13 +28,10 @@ public class ForwardLinked<T> implements Iterable<T> {
     }
 
     public void addFirst(T value) {
-        Node<T> newNode = new Node<>(value, null);
         if (head == null) {
-            head = newNode;
+            head = new Node<>(value, null);
         } else {
-            Node<T> oldFirst = head;
-            head = newNode;
-            head.next = oldFirst;
+            head = new Node<>(value, head);
         }
         size++;
         modCount++;
