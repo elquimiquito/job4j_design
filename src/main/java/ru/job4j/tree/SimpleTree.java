@@ -22,11 +22,11 @@ public class SimpleTree<E> implements Tree<E> {
 
     @Override
     public Optional<Node<E>> findBy(E value) {
-        return this.findByPredicate((el) -> el.value.equals(value));
+        return this.findByPredicate(el -> el.value.equals(value));
     }
 
     public boolean isBinary() {
-        return this.findByPredicate((el) -> el.children.size() > 2).isEmpty();
+        return this.findByPredicate(el -> el.children.size() > 2).isEmpty();
     }
 
     private Optional<Node<E>> findByPredicate(Predicate<Node<E>> condition) {
