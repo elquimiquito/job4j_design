@@ -20,17 +20,13 @@ public class Config {
         try (BufferedReader reader = new BufferedReader(new FileReader(this.path))) {
             reader.lines()
                     .filter(line -> line.contains("="))
-                    .map(line -> line.split("="))
+                    .map(line -> line.split("=", 2))
                     .forEach(
                             array -> {
-                                if ("".equals(array[0])) {
+                                if ("".equals(array[0]) || "".equals(array[1])) {
                                     throw new IllegalArgumentException();
                                 }
-                                if (array.length == 2) {
-                                    values.put(array[0], array[1]);
-                                } else if (array.length == 3) {
-                                    values.put(array[0], array[1] + array[2]);
-                                }
+                                values.put(array[0], array[1]);
                             });
         } catch (IOException e) {
             e.printStackTrace();

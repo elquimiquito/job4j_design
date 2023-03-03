@@ -28,4 +28,11 @@ class ConfigTest {
         Config config = new Config(path);
         assertThatThrownBy(config::load).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void whenNoValue() {
+        String path = "./data/configTest4.properties";
+        Config config = new Config(path);
+        assertThatThrownBy(config::load).isInstanceOf(IllegalArgumentException.class);
+    }
 }
