@@ -23,7 +23,7 @@ public class Config {
                     .map(line -> line.split("=", 2))
                     .forEach(
                             array -> {
-                                if ("".equals(array[0]) || "".equals(array[1])) {
+                                if (array.length != 2 & array[0].isBlank() || array[1].isBlank()) {
                                     throw new IllegalArgumentException();
                                 }
                                 values.put(array[0], array[1]);
