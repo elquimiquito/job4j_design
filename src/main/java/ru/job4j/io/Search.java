@@ -1,5 +1,6 @@
 package ru.job4j.io;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +11,7 @@ import java.util.function.Predicate;
 
 public class Search {
     public static void main(String[] args) throws IOException {
-        if (args.length != 2) {
+        if (args.length != 2 || !new File(args[0]).exists() || args[1].charAt(0) != '.') {
             throw new IllegalArgumentException("Введите параметры - корневую папку и расширение файла");
         }
         Path start = Paths.get(args[0]);
